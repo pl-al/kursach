@@ -1,0 +1,24 @@
+﻿<Window x:Class="kursach.Windows.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursach.Windows"
+        mc:Ignorable="d"
+        Title="OpenSky" Height="170" Width="200" Icon="/kursach;component/Image/aircraft.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#FFABCDEF" BorderThickness="1" Background="#FFABCDEF" Margin="0,0,0,115" Grid.RowSpan="2">
+            <Label Content="Меню" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="24"/>
+        </Border>
+        <Button Content="Войти" Click="Auth" Margin="10,32,10,0" Grid.Row="1" VerticalAlignment="Top" Height="30" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <Button Content="Поиск" Click="Search" Margin="10,67,10,0" Grid.Row="1" VerticalAlignment="Top" Height="30" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <Button Content="Назад" Click="Back" Margin="10,102,10,0" Grid.Row="1" VerticalAlignment="Top" Height="30" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+    </Grid>
+</Window>

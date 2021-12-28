@@ -1,0 +1,28 @@
+﻿<Window x:Class="kursach.Windows.Auth"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursach.Windows"
+        mc:Ignorable="d"
+        Title="Auto" Height="360" Width="300" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#FFABCDEF" BorderThickness="1" Background="#FFABCDEF">
+            <Label Content="Авторизация" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="24"/>
+        </Border>
+        <Label Content="Логин:" HorizontalAlignment="Left" Margin="10,30,0,0" Grid.Row="1" VerticalAlignment="Top" Height="36" Width="89" FontSize="18"/>
+        <Label Content="Пароль:" HorizontalAlignment="Left" Margin="10,80,0,0" Grid.Row="1" VerticalAlignment="Top" Height="36" Width="89" FontSize="18"/>
+        <TextBox x:Name="login" Margin="104,30,10,234" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="password" Margin="104,80,10,184" Grid.Row="1" FontSize="14" VerticalContentAlignment="Center"/>
+        <Button Click="auth" Content="Вход" Margin="10,205,10,0" Grid.Row="1" VerticalAlignment="Top" Height="40" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <Label MouseDown="reg" Content="Ещё не с нами? Зарегистрируйся!" Margin="18,145,18,126" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="14" Foreground="#FF534B4B" Cursor="Hand"/>
+        <Button Click="back" Content="Отмена" Margin="10,250,10,0" Grid.Row="1" VerticalAlignment="Top" Height="40" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+    </Grid>
+</Window>

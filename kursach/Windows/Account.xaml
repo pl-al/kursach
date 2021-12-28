@@ -1,0 +1,33 @@
+﻿<Window x:Class="kursach.Windows.Account"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursach.Windows"
+        mc:Ignorable="d"
+        Title="OpenSky" Height="400" Width="810" WindowStartupLocation="CenterScreen" MinHeight="250" MinWidth="400" Icon="/kursach;component/Image/aircraft.png" ResizeMode="NoResize">
+    <Grid>
+        <Grid x:Name="header" Grid.Row="0" Grid.Column="0">
+            <Border BorderBrush="#FFABCDEF" BorderThickness="1" Background="#FFABCDEF"/>
+            <Label Content="Профиль" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="36"/>
+        </Grid>
+        <Grid x:Name="body" Grid.Row="1" Grid.Column="0">
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="160" Margin="25,25,0,0" Stroke="Black" VerticalAlignment="Top" Width="160"/>
+            <Image x:Name="ImageAva" Source="/Image/ava_c.jpg" Margin="25,25,609,444" />
+            <Button Click="AlterImage" Content="Изменить картинку" Margin="25,210,607,0" VerticalAlignment="Top" Width="160" Height="30" FontFamily="/kursach;component/Fonts/#Montserrat Medium"/>
+            <Button Click="Save" Content="Сохранить изменения" Margin="25,245,607,0" VerticalAlignment="Top" Width="160" Height="30" FontFamily="/kursach;component/Fonts/#Montserrat Medium"/>
+            <TextBlock x:Name="LFM" Margin="200,25,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="40" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="22"/>
+            <TextBlock x:Name="Login" Margin="200,70,335,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="39" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="20"/>
+            <Button Click="Home" Content="Вернуться в главное окно" Margin="200,210,25,0" VerticalAlignment="Top" Height="65" FontFamily="/kursach;component/Fonts/#Montserrat Medium" RenderTransformOrigin="0.481,0.4" FontSize="24"/>
+            <Label MouseDown="Like" Content=">перейти к избранному" HorizontalAlignment="Left" Margin="200,163,0,0" VerticalAlignment="Top" Height="31" Width="241" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18" Cursor="Hand"/>
+            <Label Content="(выйти)" HorizontalAlignment="Left" Margin="715,-40,0,0" VerticalAlignment="Top" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16" MouseDown="Exit" Cursor="Hand"/>
+        </Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+    </Grid>
+</Window>

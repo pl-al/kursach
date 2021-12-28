@@ -1,0 +1,37 @@
+﻿<Window x:Class="kursach.Windows.Reg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursach.Windows"
+        mc:Ignorable="d"
+        Title="Reg" Height="450" Width="666" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#FFABCDEF" BorderThickness="1" Background="#FFABCDEF">
+            <Label Content="Регистрация" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="24"/>
+        </Border>
+        <Button Content="Ок" Click="okay" Margin="10,280,10,0" Grid.Row="1" VerticalAlignment="Top" Height="40" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <Button Content="Отмена" Click="back" Margin="10,325,475,0" Grid.Row="1" VerticalAlignment="Top" Height="40" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <Button Content="Вернуться на главную" Click="home" Margin="196,325,10,0" Grid.Row="1" VerticalAlignment="Top" Height="40" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <TextBlock Text="Фамилия:" Margin="10,10,356,340" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <TextBox x:Name="lname" Margin="10,40,356,300" Grid.Row="1" Height="35" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Имя:" Margin="10,81,356,265" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <TextBox x:Name="fname" Margin="10,115,356,225" Grid.Row="1" Height="35" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Отчество:" Margin="10,155,356,191" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <TextBox x:Name="mname" Margin="10,189,356,151" Grid.Row="1" Height="35" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Придумайте логин:" Margin="325,10,10,340" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <TextBox x:Name="login" Margin="325,40,10,300" Grid.Row="1" Height="35" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Придумайте пароль:" Margin="325,80,10,270" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <PasswordBox x:Name="pass1" Margin="325,115,10,225" Grid.Row="1" Height="35" Width="331" VerticalContentAlignment="Center"/>
+        <TextBlock Text="Повторите пароль:" Margin="325,155,10,195" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="18"/>
+        <PasswordBox x:Name="pass2" Margin="325,189,10,151" Grid.Row="1" Height="35" Width="331" VerticalContentAlignment="Center"/>
+        <TextBlock Text="минимальная длина логина и пароля 5 символов." Margin="10,241,10,109" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" VerticalAlignment="Center" Foreground="#FF292929" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
