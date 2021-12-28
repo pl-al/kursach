@@ -22,6 +22,8 @@ namespace kursach.Windows
     /// </summary>
     public partial class Account : Window
     {
+        public static int UserId = 0;
+
         string connectionString;
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable usersTable = new DataTable();
@@ -51,6 +53,52 @@ namespace kursach.Windows
             connection.Close();
         }
 
+        //для теста
+        public string testaccLFM()
+        {
+            usersTable.Clear();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT CONCAT(LastName, ' ', FirstName, ' ', MiddleName), Login, Image FROM Users WHERE IdUser = 1";
+            command.Connection = connection;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(usersTable);
+
+            string LFM;
+            LFM = usersTable.Rows[0][0].ToString();
+
+            connection.Close();
+
+            return LFM;
+        }
+
+        public string testaccLogin()
+        {
+            usersTable.Clear();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT CONCAT(LastName, ' ', FirstName, ' ', MiddleName), Login, Image FROM Users WHERE IdUser = 1";
+            command.Connection = connection;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(usersTable);
+
+            string log;
+            log = usersTable.Rows[0][1].ToString();
+
+            connection.Close();
+
+            return log;
+        }
+        //
+
         string filename;
 
         private void AlterImage(object sender, RoutedEventArgs e)
@@ -59,7 +107,7 @@ namespace kursach.Windows
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
             dlg.DefaultExt = ".png";
-            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg";
 
             Nullable<bool> result = dlg.ShowDialog();
 
@@ -99,7 +147,9 @@ namespace kursach.Windows
         private void Like(object sender, MouseButtonEventArgs e)
         {
             //переход в избранное
-
+            Windows.Fav fav = new Windows.Fav(UserId);
+            fav.Show();
+            Close();
         }
 
         private void Exit(object sender, MouseButtonEventArgs e)

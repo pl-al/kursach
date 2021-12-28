@@ -1,0 +1,38 @@
+﻿<Window x:Class="kursach.Windows.Fav"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursach.Windows"
+        mc:Ignorable="d"
+        Title="Favourites" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/kursach;component/Image/aircraft.png" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.45*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#abcdef" Margin="0, 0, 0, 0" Grid.ColumnSpan="2"/>
+        <Label Content="Избранное" Margin="10,5" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="36"/>
+        <Button Content="Назад" Click="Back" Margin="10" Grid.Row="3" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="16"/>
+        <DataGrid x:Name="planeGrid" Grid.Row="2" Grid.ColumnSpan="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Позывной" Binding="{Binding Callsign}" Width="*"/>
+                <DataGridTextColumn Header="Долгота" Binding="{Binding Longitude}" Width="*"/>
+                <DataGridTextColumn Header="Широта" Binding="{Binding Latitude}" Width="*"/>
+                <DataGridTextColumn Header="Страна (eng)" Binding="{Binding Country}" Width="*"/>
+                <DataGridTextColumn Header="Высота (м)" Binding="{Binding Altitude}" Width="*"/>
+                <DataGridTextColumn Header="Скорость (км/ч)" Binding="{Binding Velocity}" Width="*"/>
+                <DataGridTextColumn Header="Земля" Binding="{Binding On_ground}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Click="Upd" Content="Обновить данные"  Grid.Column="0" Grid.Row="1" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="14" />
+        <TextBlock Grid.Column="1" Grid.Row="1" Margin="10,5" Text="*если строка пуста, значит в данный момент датчики отключены и информация недоступна"/>
+        <Button Click="Delete" Grid.Column="1" Grid.Row="3" Margin="300, 10, 10, 10" Content="Удалить из избранного" FontFamily="/kursach;component/Fonts/#Montserrat Medium" FontSize="14"/>
+    </Grid>
+</Window>

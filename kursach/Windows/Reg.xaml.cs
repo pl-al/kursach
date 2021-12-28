@@ -104,5 +104,49 @@ namespace kursach.Windows
 
             connection.Close();
         }
+
+        //для теста
+        public bool testreg(string LName, string FName, string MName, string log, string pass1, string pass2)
+        {
+            usersTable.Clear();
+
+            //обработчик ошибок при регистрации
+            if (LName == "" || FName == "" || MName == "" || log == "" || pass1 == "" || pass2 == "")
+            {
+                return false;
+            }
+
+            if (log.Length < 5 || pass1.Length < 5)
+            {
+                return false;
+            }
+
+            if (pass1 != pass2)
+            {
+                return false;
+            }
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM Users WHERE Login = '" + log + "'";
+            command.Connection = connection;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(usersTable);
+
+            if (usersTable.Rows.Count != 0)
+            {
+                connection.Close();
+                return false;
+            }
+            else
+            {
+                //успех, переход в профиль
+                connection.Close();
+                return true;
+            } 
+        }
     }
 }

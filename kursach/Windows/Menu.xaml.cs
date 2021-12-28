@@ -39,21 +39,53 @@ namespace kursach.Windows
                 MessageBox.Show("Вы уже вошли, переходим в профиль...");
                 Windows.Account acc = new Windows.Account(UserId);
                 acc.Show();
-                Close();
+                
+                foreach(var wnd in Application.Current.Windows)
+                {
+                    if (wnd is MainWindow)
+                    {
+                        MainWindow boofWnd = (MainWindow)wnd;
+                        boofWnd.Close();
+                    }
+                }
+
+                Close();               
             }
             else
             {
                 //перейти к авторизации
                 Windows.Auth auth = new Windows.Auth();
                 auth.Show();
-                Close();
-                Application.Current.MainWindow.Close();
+
+                foreach (var wnd in Application.Current.Windows)
+                {
+                    if (wnd is MainWindow)
+                    {
+                        MainWindow boofWnd = (MainWindow)wnd;
+                        boofWnd.Close();
+                    }
+                }
+
+                Close();                
             }             
         }
 
         private void Search(object sender, RoutedEventArgs e)
         {
             //перейти к поиску
+            Windows.Search search = new Windows.Search();
+            search.Show();
+
+            foreach (var wnd in Application.Current.Windows)
+            {
+                if (wnd is MainWindow)
+                {
+                    MainWindow boofWnd = (MainWindow)wnd;
+                    boofWnd.Close();
+                }
+            }
+
+            Close();
         }
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace kursach
 {
     /// <summary>
@@ -23,7 +24,7 @@ namespace kursach
         public MainWindow()
         {
             InitializeComponent();
-        }
+        }      
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {

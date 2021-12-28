@@ -37,9 +37,7 @@ namespace kursach.Windows
         {
             //вернуться назад
             MainWindow main = new MainWindow();
-            main.Show();
-            Windows.Menu menu = new Windows.Menu();
-            menu.ShowDialog();            
+            main.Show();           
             Close();
         }
 
@@ -53,6 +51,8 @@ namespace kursach.Windows
 
         private void auth(object sender, RoutedEventArgs e)
         {
+            testauth(login.Text, password.Password);
+
             //обработчик ошибок при авторизации
             if(login.Text == "" || password.Password == "")
             {
@@ -86,6 +86,42 @@ namespace kursach.Windows
             }
 
             connection.Close();
+        }
+
+        ////для теста
+        public bool testauth(string log, string pass)
+        {
+            usersTable.Clear();
+
+            if (log == "" || pass == "")
+            {
+                //неуспех
+                return false;
+            }
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "SELECT * FROM Users WHERE Login = '" + log + "' AND Password = '" + pass + "'";
+            command.Connection = connection;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(usersTable);
+
+            if (usersTable.Rows.Count != 0)
+            {
+                //успех
+                connection.Close();
+                return true;
+
+            }
+            else
+            {
+                //неуспех
+                connection.Close();
+                return false;
+            }
         }
     }
 }
